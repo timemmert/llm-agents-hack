@@ -25,10 +25,11 @@ def matching():
         {history}
         Human: {input}
         AI:"""
-    conversation = converse(llm_one, llm_two, template=DEFAULT_TEMPLATE)  # Initial promt might be
+    conversation_one, conversation_two = converse(llm_one, llm_two, template=DEFAULT_TEMPLATE, conversation_length=15)  # Initial promt might be
 
 
-def converse(llm_one, llm_two, template):
+
+def converse(llm_one, llm_two, template, conversation_length):
     """
     Given two LLMs, this returns the conversation.
 
@@ -50,12 +51,12 @@ def converse(llm_one, llm_two, template):
         memory=ConversationBufferMemory(),
         prompt=PROMPT,
     )
-    output_two = "Hey there!"
+    output_two = "Hey there, let's get to know each other!"
     # System: those are my intersts -> system message for both of them
-    for i in range(3):
+    for i in range(conversation_length):
         output_one = conversation_one.predict(input=output_two)
         output_two = conversation_two.predict(input=output_one)
-    messages = conversation_one.memory.buffer_as_messages  # TODO: right now, misses last message
-    return messages
+
+    return conversation_one, conversation_two
 
 matching()
