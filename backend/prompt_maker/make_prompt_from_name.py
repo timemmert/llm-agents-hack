@@ -18,7 +18,3 @@ def prompt_from_name(name: str):
     return conversation_buf(
         text_for_name(name)
     )
-
-print(
-    prompt_from_name("tim")
-)

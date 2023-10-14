@@ -6,10 +6,6 @@ from pymongo.collection import Collection
 from langchain.memory import ConversationBufferMemory
 
 
-
-def mock_langchain(name: str):
-    pass
-
 def matching():
     # Data we get: Name
     # TODO: given Nikhils function, generate LangChain agents
@@ -26,7 +22,6 @@ def matching():
         Human: {input}
         AI:"""
     conversation_one, conversation_two = converse(llm_one, llm_two, template=DEFAULT_TEMPLATE, conversation_length=15)  # Initial promt might be
-
 
 
 def converse(llm_one, llm_two, template, conversation_length):
