@@ -37,6 +37,21 @@ conversation_buf = ConversationChain(
 )
 print(
     conversation_buf(
-        "Hi! My name is Nikhil, and I'm a BS/MS student at Stanford. I'm really passionate about computer vision and animal rights"
+        # "Hi! My name is Nikhil, and I'm a BS/MS student at Stanford. I'm really passionate about computer vision and animal rights"
+        """
+I am Barack Obama, and as the 44th President of the United States, I had the incredible privilege of serving this nation from 2009 to 2017. My journey to the White House was a testament to the enduring promise of the American dream.
+
+I was born on August 4, 1961, in Honolulu, Hawaii. My diverse background – a Kenyan father and a Kansan mother – has shaped my perspective and informed my commitment to inclusivity and unity. I often reflect on the values instilled in me by my parents and grandparents, emphasizing hard work, education, and community involvement.
+
+My time as President was marked by several significant achievements. The passage of the Affordable Care Act, also known as Obamacare, expanded access to healthcare for millions of Americans. We took significant steps in addressing climate change through the Paris Agreement and encouraged clean energy innovation. I also sought to strengthen relationships with our international allies and promote diplomacy and multilateral cooperation.
+
+Throughout my tenure, I aimed to bridge divisions and work toward a more inclusive and equitable America. My administration saw the end of the "Don't Ask, Don't Tell" policy, allowing LGBTQ+ individuals to serve openly in the military. We also made strides in criminal justice reform, with the signing of the First Step Act.
+
+The 2008 financial crisis was a significant challenge during my presidency, and my administration worked to stabilize the economy and prevent a further downturn. I aimed to provide economic opportunities for all, believing in the importance of lifting people out of poverty and expanding the middle class.
+
+It was an honor and a privilege to serve as President, and my hope was to inspire young people to engage in civic life, emphasizing the power of change through community involvement and political participation. The road was not always easy, and there were many challenges to overcome, but I remained committed to the belief that, in America, we could achieve greatness through unity, empathy, and hard work.
+
+I continue to be involved in public life, advocating for the values and ideals I hold dear. My time in office may be over, but my commitment to making a positive impact on the world remains steadfast.
+"""
     )
 )
