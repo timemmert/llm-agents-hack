@@ -36,12 +36,6 @@ def converse(llm_one, llm_two, template):
     :param llm_two:
     :return:
     """
-    DEFAULT_TEMPLATE = """
-
-    Current conversation:
-    {history}
-    Human: {input}
-    AI:"""
     PROMPT = PromptTemplate(input_variables=["history", "input"], template=template)
 
     conversation_one = ConversationChain(
