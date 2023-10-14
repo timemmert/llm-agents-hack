@@ -4,11 +4,7 @@ from langchain.prompts import PromptTemplate
 from langchain.memory import ConversationBufferMemory
 
 
-def mock_langchain(name: str):
-    pass
-
-
-def matching(person_1_description, person_2_description):
+def converse(person_1_description, person_2_description):
     llm_one = OpenAI(
         temperature=0,
         openai_api_key="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",
@@ -29,7 +25,7 @@ def matching(person_1_description, person_2_description):
         {history}
         Human: {input}
         AI:"""
-    return converse(
+    return _converse(
         llm_one,
         llm_two,
         person_1_description,
@@ -39,7 +35,7 @@ def matching(person_1_description, person_2_description):
     )
 
 
-def converse(
+def _converse(
     llm_one,
     llm_two,
     person_1_description,
