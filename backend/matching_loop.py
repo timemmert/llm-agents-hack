@@ -12,6 +12,7 @@ def do_conversations_for_human(human_name: str):
     conversation_partners_score = {}
 
     files = os.listdir(path)
+    prompt_conversation_current_human = prompt_from_name(human_name)
     for file in files:
         name = file.split(".")[0]
         if name == human_name:
@@ -21,7 +22,6 @@ def do_conversations_for_human(human_name: str):
             "description": "",
         }
         prompt_conversation_partner = prompt_from_name(name)
-        prompt_conversation_current_human = prompt_from_name(human_name)
 
         conversation = converse(
             prompt_conversation_current_human["response"],
