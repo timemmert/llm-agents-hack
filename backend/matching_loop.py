@@ -17,6 +17,7 @@ def do_conversations_for_human(human_name: str):
 
     files = os.listdir(path)
     prompt_conversation_current_human = prompt_from_name(human_name)
+    compatibilities = []
     for file in files:
         name = file.split(".")[0]
         if name == human_name:
@@ -32,8 +33,15 @@ def do_conversations_for_human(human_name: str):
         conversation_partners_score = evaluate_compatibility(
             prompt_conversation_current_human["response"], [conversation]
         )
-        return conversation_partners_score
-    return conversation_partners_score
+        compatibilities.append(
+            (
+                conversation_partners_score.overall_score,
+                name,
+                conversation_partners_score,
+            )
+        )
+    return max(compatibilities)
 
 
-print(do_conversations_for_human("tim"))
+if __name__ == "__main__":
+    print(do_conversations_for_human("tim"))
