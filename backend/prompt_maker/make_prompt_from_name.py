@@ -8,11 +8,10 @@ def text_for_name(name: str):
 
     path = os.path.join(path_of_this_python_folder, f"../data/db/people/{name}.txt")
 
-    with open(path, 'r') as file:
+    with open(path, "r") as file:
         content = file.read()
     return content
 
+
 def prompt_from_name(name: str):
-    return conversation_buf(
-        text_for_name(name)
-    )
+    return conversation_buf(text_for_name(name))

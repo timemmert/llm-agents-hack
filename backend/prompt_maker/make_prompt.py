@@ -5,7 +5,11 @@ from langchain.prompts import PromptTemplate
 
 
 # first initialize the large language model
-llm = OpenAI(temperature=0, model_name="text-davinci-003", openai_api_key="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")
+llm = OpenAI(
+    temperature=0,
+    model_name="text-davinci-003",
+    openai_api_key="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",
+)
 
 # now initialize the conversation chain
 
