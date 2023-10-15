@@ -40,6 +40,15 @@ def run_convos():
     name = data["name"]
     top_compatibility = do_conversations_for_human(name)
     score, name, compatibility = top_compatibility
-    response = jsonify({"data": top_compatibility})
+    response = jsonify(
+        {
+            "data": {
+                "score": score,
+                "name_of_match": name,
+                "reasons_for": compatibility.reasons_for,
+                "reasons_against": compatibility.reasons_against,
+            }
+        }
+    )
 
     return response
