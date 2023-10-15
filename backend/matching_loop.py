@@ -21,10 +21,6 @@ def do_conversations_for_human(human_name: str):
         name = file.split(".")[0]
         if name == human_name:
             continue
-        conversation_partners_score[name] = {
-            "score": 0,
-            "description": "",
-        }
         prompt_conversation_partner = prompt_from_name(name)
 
         conversation = converse(
@@ -34,8 +30,9 @@ def do_conversations_for_human(human_name: str):
 
         # TODO: Plug matching results into evaluator
         conversation_partners_score = evaluate_compatibility(
-            prompt_conversation_current_human["response"], conversation
+            prompt_conversation_current_human["response"], [conversation]
         )
+        return conversation_partners_score
     return conversation_partners_score
 
 

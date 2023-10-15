@@ -9,10 +9,10 @@ from output_parsers import compatibility_parser, conversation_parser
 # Take a list of summaries, pros, and cons, and generate a unified list - using ranked model
 
 def summarize_conversation(person_prompt, conversation, verbose=False):
-    try:
-        conversation_history = conversation.memory.chat_memory.messages
-    except:
-        conversation_history = conversation
+    # try:
+    conversation_history = conversation.memory.chat_memory.messages
+    # except:
+    #     conversation_history = conversation
 
     messages = [
         SystemMessage(content=person_prompt),
