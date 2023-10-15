@@ -16,7 +16,7 @@ def summarize_conversation(person_prompt, conversation, verbose=False):
 
     messages = [
         SystemMessage(content=person_prompt),
-    ] + conversation_history + [
+    ] + list(conversation_history) + [
         SystemMessage(content=f"Now that you've had a conversation with another person, think about how you would feel if you were dating them. Summarize how romantically compatible you feel with them, both in free-form text, and as a list of pros and cons.\n\n{conversation_parser.get_format_instructions()}")
     ]
 
