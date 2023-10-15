@@ -3,13 +3,17 @@ import os
 from pathlib import Path
 import json
 
+app = Flask(__name__)
+
 base_path = Path(__file__).parent
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello_world():
     return "<p>Hello, World!</p>"
+
 
 @app.route("/user_input", methods=["POST"])
 def store_text():
@@ -17,4 +21,4 @@ def store_text():
     name = data["name"]
     with open(base_path / "data" / "db" / "people" / f"{name}.json", "a") as file:
         json.dump(data, file)
-    return "Information stored successfully!"
+    return {"response": "Information stored successfully!"}

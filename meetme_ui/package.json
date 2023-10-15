@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
     "@mui/material": "^5.14.13",
+    "axios": "^1.5.1",
     "eslint-config-prettier": "^9.0.0",
     "next": "13.5.4",
     "prettier": "^3.0.3",
