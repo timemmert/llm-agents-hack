@@ -85,7 +85,8 @@ def _converse(
     return messages
 
 
-if "__name__" == __main__:
+
+if __name__ == "__main__":
     # person_1_description = "--------- Passionate about computer vision and animal rights----- BS/MS student at Stanford----- Enjoys reading, hiking, and playing video games----- Values honesty, integrity, and hard work----- Has a strong sense of justice and fairness----- Likes to explore new ideas and technologies----- Enjoys learning new things and meeting new people"
     person_1_description = "'\n1. Personality: Outgoing, adventurous, creative\n2. Values: Family, sports, books, music\n3. Background: 16-year-old from a small town in Indiana, from a big family, plays soccer, loves books, foodie, plays guitar\n4. Age: 16\n5. Name: Sarah\n6. Hobbies: Soccer, reading, cooking, playing guitar\n7. Goals: Balance sports, books, and baking\n8. Political Leanings: Unknown'"
     # person_2_description = (
