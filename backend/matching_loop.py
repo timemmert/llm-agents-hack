@@ -32,7 +32,15 @@ def do_conversations_for_human(human_name: str):
         conversation_partners_score = compatibility_parser(
             prompt_conversation_current_human, conversation
         )
-    return conversation_partners_score
+
+    highest_score = -1
+    highest_score_name = ""
+    for name in conversation_partners_score:
+        if highest_score < conversation_partners_score[name]["score"]:
+            highest_score = conversation_partners_score[name]["score"]
+            highest_score_name = name
+        print(f"{name}: {conversation_partners_score[name]}")
+    return highest_score_name, highest_score, conversation_partners_score[name]["description"]
 
 
 print(do_conversations_for_human("tim"))
