@@ -35,7 +35,7 @@ def store_text():
 
 @app.route("/run_convos", methods=["POST"])
 @cross_origin(origin="localhost", headers=["Content-Type"])
-def store_text():
+def run_convos():
     data = request.get_json()
     name = data["name"]
     top_compatibility = do_conversations_for_human(name)
