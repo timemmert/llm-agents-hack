@@ -7,11 +7,11 @@ from langchain.memory import ConversationBufferMemory
 def converse(person_1_description, person_2_description):
     llm_one = OpenAI(
         temperature=0.9,
-        openai_api_key="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",
+        # openai_api_key="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",
     )
     llm_two = OpenAI(
         temperature=0.9,
-        openai_api_key="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",
+        # openai_api_key="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",
     )
     # system_description = """ You are having a conversation with another person whom you are meeting for the first time.
     #     You are not an AI, but rather an individual with the following description. Match the person in their tone of
@@ -78,7 +78,7 @@ def _converse(
     )
     output_two = "Hey there!"
     print("2: ", output_two)
-    for i in range(20):
+    for i in range(3):
         output_one = conversation_one.predict(
             input=output_two,
         )

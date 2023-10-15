@@ -6,7 +6,7 @@ from flask_cors import CORS, cross_origin
 import sys
 
 sys.path.insert(0, ".")
-from matching_loop import do_conversations_for_human
+from backend.matching_loop import do_conversations_for_human
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -27,8 +27,8 @@ def hello_world():
 def store_text():
     data = request.get_json()
     name = data["name"]
-    with open(base_path / "data" / "db" / "people" / f"{name}.json", "a") as file:
-        json.dump(data, file)
+    with open(base_path / "data" / "db" / "people" / f"{name}.txt", "w") as file:
+        file.write(data["text"])
     response = jsonify({"data": "Success!"})
     return response
 

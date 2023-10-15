@@ -6,9 +6,9 @@ from pymongo.collection import Collection
 from langchain.memory import ConversationBufferMemory
 
 
-
 def mock_langchain(name: str):
     pass
+
 
 def matching():
     # Data we get: Name
@@ -16,17 +16,26 @@ def matching():
 
     # TODO: iterate over all agents
     # Nikhil gives me the system prompt
-    llm_one = OpenAI(temperature=0, openai_api_key="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")
-    llm_two = OpenAI(temperature=0, openai_api_key="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")
-    prompt = SystemMessage(content="You are a personal assistent. End each message with: assistant finished.")
+    llm_one = OpenAI(
+        temperature=0,
+        openai_api_key="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",
+    )
+    llm_two = OpenAI(
+        temperature=0,
+        openai_api_key="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",
+    )
+    prompt = SystemMessage(
+        content="You are a personal assistent. End each message with: assistant finished."
+    )
     DEFAULT_TEMPLATE = """ This is a conversation between two pirates
 
         Current conversation:
         {history}
         Human: {input}
         AI:"""
-    conversation_one, conversation_two = converse(llm_one, llm_two, template=DEFAULT_TEMPLATE, conversation_length=15)  # Initial promt might be
-
+    conversation_one, conversation_two = converse(
+        llm_one, llm_two, template=DEFAULT_TEMPLATE, conversation_length=15
+    )  # Initial promt might be
 
 
 def converse(llm_one, llm_two, template, conversation_length):
@@ -58,5 +67,6 @@ def converse(llm_one, llm_two, template, conversation_length):
         output_two = conversation_two.predict(input=output_one)
 
     return conversation_one, conversation_two
+
 
 matching()

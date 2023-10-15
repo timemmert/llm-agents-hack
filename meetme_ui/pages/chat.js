@@ -1,8 +1,9 @@
 // ChatComponent.js
 import React, { useState } from "react";
-import axios from "axios";
+import { TextField } from "@mui/material";
 
 const ChatComponent = () => {
+  const [name, setName] = useState("");
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState("");
 
@@ -21,7 +22,7 @@ const ChatComponent = () => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ name: "test", message: userInput })
+      body: JSON.stringify({ name: name, text: userInput })
     });
 
       const data = await response.json()
@@ -33,10 +34,12 @@ const ChatComponent = () => {
     }
 
     setUserInput("");
+    window.location = `/compdisplay?name=${name}`;
   };
 
   return (
     <div className="chat-container">
+      <TextField id="outlined-basic" label="Name" variant="outlined" value={name} onChange={(event) => setName(event.target.value)}/>
       <div className="chat-display">
         {messages.map((message, index) => (
           <div key={index} className={`chat-message ${message.sender}`}>
@@ -51,7 +54,7 @@ const ChatComponent = () => {
           onChange={handleInputChange}
           placeholder="Type a message..."
         />
-        <button onClick={handleSubmit}>Send</button>
+        <button onClick={handleSubmit} disabled={name ? false : true }>Send</button>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ from langchain.prompts import PromptTemplate
 llm = OpenAI(
     temperature=0,
     model_name="text-davinci-003",
-    openai_api_key="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",
+    openai_api_key="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",
 )
 
 # now initialize the conversation chain

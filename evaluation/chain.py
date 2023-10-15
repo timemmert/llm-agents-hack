@@ -2,7 +2,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema import SystemMessage
 
-from output_parsers import compatibility_parser, conversation_parser
+from evaluation.output_parsers import compatibility_parser, conversation_parser
 
 # List of conversation histories
 # Summarize each conversation, with pros and cons - using person model
