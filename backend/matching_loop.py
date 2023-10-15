@@ -30,7 +30,7 @@ def do_conversations_for_human(human_name: str):
 
         # TODO: Plug matching results into evaluator
         conversation_partners_score = compatibility_parser(
-            prompt_conversation_current_human, conversation
+            prompt_conversation_current_human["response"], conversation
         )
     return conversation_partners_score
 
