@@ -91,8 +91,7 @@ def _converse(
         print("2: ", output_two)
         if "Goodbye" in output_two:
             break
-    messages = conversation_one.memory.buffer_as_messages
-    return messages
+    return conversation_one
 
 
 if __name__ == "__main__":
