@@ -16,24 +16,21 @@ const ChatComponent = () => {
     // Add user message to chat
     setMessages([...messages, { sender: "user", text: userInput }]);
     try {
-      fetch("http://127.0.0.1:5000/user_input", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name: "test", message: userInput })
-      }).then(response => {
-        console.log(response);
-      });
+      const response = await fetch("http://127.0.0.1:5000/user_input", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name: "test", message: userInput })
+    });
+
+      const data = await response.json()
 
       // Add chatbot response to chat
-      setMessages([...messages, { sender: "bot", text: data.response }]);
+      setMessages([...messages, { sender: "bot", text: data.data }]);
     } catch (error) {
       console.error(error);
     }
-
-    // Add chatbot response to chat
-    setMessages([...messages, { sender: "user", text: userInput }, { sender: "bot", text: response }]);
 
     setUserInput("");
   };
