@@ -1,8 +1,12 @@
 import os
+import sys
 
+sys.path.insert(0, ".")
+sys.path.insert(0, "..")
+sys.path.insert(0, "../evaluation")
 from backend.agent_conversation import converse
 from backend.prompt_maker.make_prompt_from_name import prompt_from_name
-from evaluation.chain import compatibility_parser
+from evaluation.chain import evaluate_compatibility
 
 
 def do_conversations_for_human(human_name: str):
@@ -29,7 +33,7 @@ def do_conversations_for_human(human_name: str):
         )
 
         # TODO: Plug matching results into evaluator
-        conversation_partners_score = compatibility_parser(
+        conversation_partners_score = evaluate_compatibility(
             prompt_conversation_current_human["response"], conversation
         )
     return conversation_partners_score
