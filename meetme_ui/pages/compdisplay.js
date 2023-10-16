@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import { CardHeader } from '@mui/material';
 
 function CompatibilityDisplay() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,9 +36,13 @@ function CompatibilityDisplay() {
   }
 
   return (
+    <Card>
+        <CardHeader
+        title={`Your best match is ${convo_result.name}`}
+        subheader={`Compatibility Score: ${convo_result.score}`}
+      />
+    <CardContent>
     <div className="compatibility-container">
-      <h1>Your best match is {convo_result.name}</h1>
-      <div className="score-display">Compatibility Score: {convo_result.score}</div>
       <div className="list-container">
         <div className="pros">
           <h3>Pros</h3>
@@ -58,6 +62,8 @@ function CompatibilityDisplay() {
         </div>
       </div>
     </div>
+    </CardContent>
+    </Card>
   );
 }
 
